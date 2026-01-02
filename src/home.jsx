@@ -1,4 +1,4 @@
-// Home.jsx
+// Initial author Siddarth
 import React, { useEffect, useMemo, useState, useRef } from "react";
 
 const API_BASE = "http://localhost:4000";
