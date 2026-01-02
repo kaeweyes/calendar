@@ -1,7 +1,8 @@
 // Initial author Siddarth
 import React, { useEffect, useMemo, useState, useRef } from "react";
 //import { RiDeleteBin6Line } from "react-icons/ri";
-import { MdClose } from "react-icons/md";
+//import { MdRemoveCircleOutline } from "react-icons/md";
+import { TiDeleteOutline } from "react-icons/ti";
 
 const API_BASE = "http://localhost:4000";
 
@@ -301,7 +302,8 @@ const styles = {
         minHeight: 0,
     },
     unscheduledItem: { padding: "2px 10px", border: "1px solid #ddd", borderRadius: 6, background: "#eef", cursor: "grab", display: "flex", justifyContent: "space-between", alignItems: "center" },
-    smallBtn: { padding: "2px 2px", borderRadius: 6, border: "1px solid #aaa", cursor: "pointer" },
+    smallBtn: { padding: "5px 5px", borderRadius: 6, border: "1px solid #aaa", cursor: "pointer" },
+    smallBtnIco: { padding: "1px 1px", borderRadius: 6, border: "1px solid #aaa", cursor: "pointer" }, formInput: { width: "100%", padding: "2px 8px", boxSizing: "border-box", marginTop: 3, marginBottom: 10, fontSize: 16 },
     formInput: { width: "100%", padding: "2px 8px", boxSizing: "border-box", marginTop: 3, marginBottom: 10, fontSize: 16 },
     popupOverlay: { position: "fixed", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", background: "rgba(0,0,0,0.45)", zIndex: 9999, padding: "1rem" },
     popupModal: { position: "relative", minWidth: 320, maxWidth: "92%", maxHeight: "92%", overflow: "auto", background: "white", borderRadius: 8, boxShadow: "0 10px 30px rgba(0,0,0,0.25)", padding: "1.25rem" },
@@ -495,7 +497,7 @@ const SchedulePopup = ({ unscheduled, year, monthIndex, onCancel, onScheduled, r
                     Date (dd/mm/yyyy)
                     <input
                         style={styles.formInput}
-                        type="text"
+                        type="date"
                         value={date}
                         onChange={(e) => setDate(e.target.value)}
                         placeholder="dd/mm/yyyy"
@@ -518,7 +520,7 @@ const SchedulePopup = ({ unscheduled, year, monthIndex, onCancel, onScheduled, r
                         {['none', 'daily', 'monthly', 'quarterly'].map(freq => (
                             <label key={freq} style={{ fontSize: 14 }}>
                                 <input type="radio" name="freq" checked={repeatFreq === freq} onChange={() => setRepeatFreq(freq)} style={{ marginRight: 8 }} />
-                                {freq === 'none' ? 'No repeats' : freq.charAt(0).toUpperCase() + freq.slice(1)}
+                                {freq === 'none' ? 'Do Not Repeat' : freq.charAt(0).toUpperCase() + freq.slice(1)}
                             </label>
                         ))}
                     </div>
@@ -838,13 +840,13 @@ export default function Home({ yearOverride } = {}) {
                                 <div style={{ fontSize: 20, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", maxWidth: 200 }}>{u.name}</div>
                                 <div style={{ display: "flex", gap: 6 }}>
                                     <button
-                                        style={styles.smallBtn}
+                                        style={styles.smallBtnIco}
                                         onClick={(e) => {
                                             e.stopPropagation();
                                             requestDeleteUnscheduled(u);
                                         }}
                                     >
-                                        <MdClose size={20}/>
+                                        <TiDeleteOutline  size={20}/>
                                     </button>
                                 </div>
                             </div>

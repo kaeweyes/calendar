@@ -695,7 +695,7 @@ const CreateEventPanel = ({ defaultDate, onCreate, onCancel, recentNames = [] })
                     Date (dd/mm/yyyy)
                     <input
                         style={styles.formInput}
-                        type="text"
+                        type="date"
                         value={date}
                         onChange={(e) => setDate(e.target.value)}
                         placeholder="dd/mm/yyyy"
