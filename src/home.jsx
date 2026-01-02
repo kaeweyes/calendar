@@ -298,7 +298,7 @@ const styles = {
         flex: 1,
         minHeight: 0,
     },
-    unscheduledItem: { padding: "8px 10px", border: "1px solid #ddd", borderRadius: 6, background: "#fff", cursor: "grab", display: "flex", justifyContent: "space-between", alignItems: "center" },
+    unscheduledItem: { padding: "8px 10px", border: "1px solid #ddd", borderRadius: 6, background: "#eef", cursor: "grab", display: "flex", justifyContent: "space-between", alignItems: "center" },
     smallBtn: { padding: "6px 8px", borderRadius: 6, border: "1px solid #aaa", cursor: "pointer" },
     formInput: { width: "100%", padding: "6px 8px", boxSizing: "border-box", marginTop: 6, marginBottom: 6 },
     popupOverlay: { position: "fixed", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", background: "rgba(0,0,0,0.45)", zIndex: 9999, padding: "1rem" },
