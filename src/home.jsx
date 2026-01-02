@@ -1,5 +1,7 @@
 // Initial author Siddarth
 import React, { useEffect, useMemo, useState, useRef } from "react";
+//import { RiDeleteBin6Line } from "react-icons/ri";
+import { MdClose } from "react-icons/md";
 
 const API_BASE = "http://localhost:4000";
 
@@ -298,9 +300,9 @@ const styles = {
         flex: 1,
         minHeight: 0,
     },
-    unscheduledItem: { padding: "8px 10px", border: "1px solid #ddd", borderRadius: 6, background: "#eef", cursor: "grab", display: "flex", justifyContent: "space-between", alignItems: "center" },
-    smallBtn: { padding: "6px 8px", borderRadius: 6, border: "1px solid #aaa", cursor: "pointer" },
-    formInput: { width: "100%", padding: "6px 8px", boxSizing: "border-box", marginTop: 6, marginBottom: 6 },
+    unscheduledItem: { padding: "2px 10px", border: "1px solid #ddd", borderRadius: 6, background: "#eef", cursor: "grab", display: "flex", justifyContent: "space-between", alignItems: "center" },
+    smallBtn: { padding: "2px 2px", borderRadius: 6, border: "1px solid #aaa", cursor: "pointer" },
+    formInput: { width: "100%", padding: "2px 8px", boxSizing: "border-box", marginTop: 3, marginBottom: 10, fontSize: 16 },
     popupOverlay: { position: "fixed", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", background: "rgba(0,0,0,0.45)", zIndex: 9999, padding: "1rem" },
     popupModal: { position: "relative", minWidth: 320, maxWidth: "92%", maxHeight: "92%", overflow: "auto", background: "white", borderRadius: 8, boxShadow: "0 10px 30px rgba(0,0,0,0.25)", padding: "1.25rem" },
 };
@@ -833,7 +835,7 @@ export default function Home({ yearOverride } = {}) {
                                 onDragStart={(e) => onUnscheduledDragStart(e, u)}
                                 style={styles.unscheduledItem}
                             >
-                                <div style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", maxWidth: 200 }}>{u.name}</div>
+                                <div style={{ fontSize: 20, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", maxWidth: 200 }}>{u.name}</div>
                                 <div style={{ display: "flex", gap: 6 }}>
                                     <button
                                         style={styles.smallBtn}
@@ -842,7 +844,7 @@ export default function Home({ yearOverride } = {}) {
                                             requestDeleteUnscheduled(u);
                                         }}
                                     >
-                                        Delete
+                                        <MdClose size={20}/>
                                     </button>
                                 </div>
                             </div>
